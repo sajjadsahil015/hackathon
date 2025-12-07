@@ -1,0 +1,24 @@
+---
+sidebar_position: 2
+title: "2. Lab: Hello Isaac"
+description: Launching the environment
+---
+
+# Lab: Hello Isaac
+
+## Launching
+1. Open **Omniverse Launcher**.
+2. Launch **Isaac Sim**.
+
+## Loading a Robot
+1. Open the Content tab.
+2. Navigate to `Isaac/Robots/Carter`.
+3. Drag the "Carter" robot into the stage.
+
+## ROS 2 Bridge
+Enable the `omni.isaac.ros2_bridge` extension. Press **Play**.
+List topics in your terminal:
+```bash
+ros2 topic list
+# Should see /scan, /cmd_vel, /rgb
+```

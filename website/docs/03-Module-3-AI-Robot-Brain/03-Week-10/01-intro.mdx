@@ -1,32 +1,20 @@
 ---
 sidebar_position: 1
-title: Introduction
+title: 1. Nav2 Architecture
 description: The Navigation 2 Stack
 ---
 
-# Week 10: Navigation 2 (Nav2)
+# Navigation 2 (Nav2)
 
-## 🎯 Learning Objectives
+Nav2 is the standard navigation framework for ROS 2.
 
-<LearningObjective objectives={[
-  "Configure the Nav2 stack costmaps",
-  "Tune planners and controllers",
-  "Send autonomous waypoints"
-]} />
+## Core Components
+1.  **Global Planner**: Finds the optimal path from A to B (Dijkstra/A*).
+2.  **Local Controller**: Follows the path avoiding dynamic obstacles (DWB/MPPI).
+3.  **Costmaps**: 2D grids marking safe and unsafe areas.
+4.  **Recovery Behaviors**: What to do if stuck (Spin, Back up).
 
-## 1. The Nav2 Stack Architecture
-
-Nav2 is the industry standard for mobile robotics navigation.
-*   **Planner (Global)**: Dijkstra/A* algorithm to find path from A to B.
-*   **Controller (Local)**: Follows the path while avoiding dynamic obstacles (people, pets).
-*   **Costmaps**: 2D grid representing safe/unsafe areas.
-
-## 2. Costmap Layers
-
-1.  **Static Layer**: Walls (from SLAM map).
-2.  **Obstacle Layer**: Real-time Lidar data.
-3.  **Inflation Layer**: Padding around obstacles to prevent collision.
-
-## 3. Lab: Autonomous Waypoints
-
-Use the "2D Nav Goal" tool in RViz to command the robot to go to the kitchen.
+## Costmap Layers
+*   **Static Layer**: Walls from the SLAM map.
+*   **Obstacle Layer**: Real-time Lidar/Camera hits.
+*   **Inflation Layer**: Padding to prevent collisions.

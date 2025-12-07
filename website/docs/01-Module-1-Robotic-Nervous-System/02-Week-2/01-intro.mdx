@@ -1,26 +1,16 @@
 ---
 sidebar_position: 1
-title: Introduction
-description: Topics and Services
+title: 1. Topics & Services
+description: Deep dive into Communication
 ---
 
-# Week 2: ROS 2 Communication
+# Topics & Services
 
-## 🎯 Learning Objectives
+## Topics (Pub/Sub)
 
-<LearningObjective objectives={[
-  "Master Pub/Sub messaging with Topics",
-  "Implement Request/Reply with Services",
-  "Debug utilizing RQt Graph"
-]} />
-
-## 1. The Flow of Data (Topics)
-
-**Topics** are the primary way data moves in ROS 2. It follows a **Publisher/Subscriber** model.
+**Topics** are the primary way data moves in ROS 2.
 - **Asynchronous**: Publishers don't know who is listening.
 - **Many-to-Many**: One topic can have multiple publishers and subscribers.
-
-### Conceptual Diagram
 
 ```mermaid
 graph LR
@@ -28,21 +18,8 @@ graph LR
     B -- /detected_objects --> C[Path Planner]
 ```
 
-## 2. Hands-On: Pub/Sub implementation
+## Services (Req/Res)
 
-Creating a publisher that counts up.
-
-```python
-self.publisher_ = self.create_publisher(String, 'topic', 10)
-timer_period = 0.5  # seconds
-self.timer = self.create_timer(timer_period, self.timer_callback)
-```
-
-## 3. Services (Synchronous)
-
-Sometimes you need an answer *now*.
+**Services** are for synchronous calls.
 - **Client**: Sends a request (e.g., "Reset Simulation").
 - **Server**: Processes and sends a response.
-
-### Lab Task
-Use `ros2 service call` to reset the Turtlesim background color.

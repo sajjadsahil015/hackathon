@@ -1,0 +1,19 @@
+---
+sidebar_position: 2
+title: "2. Lab: Autonomous Waypoints"
+description: Commanding the robot
+---
+
+# Lab: Autonomous Waypoints
+
+## Launch Nav2
+```bash
+ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
+```
+
+## Setting a Goal
+1. In RViz, click **2D Pose Estimate** to tell the robot where it is.
+2. Click **2D Nav Goal** and click somewhere else on the map.
+
+## Observation
+Watch the Global Planner draw a path (Green line) and the Local Controller drive the robot along it.

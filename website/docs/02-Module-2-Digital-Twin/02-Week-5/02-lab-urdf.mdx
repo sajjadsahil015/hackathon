@@ -1,0 +1,23 @@
+---
+sidebar_position: 2
+title: "2. Lab: Building a Mobile Robot"
+description: Creating a differential drive robot
+---
+
+# Lab: Building a Mobile Robot
+
+## Objective
+Create a 2-wheeled robot with a caster wheel.
+
+## Steps
+1. Create a new package: `ros2 pkg create --build-type ament_python my_robot_description`
+2. Create a `urdf/robot.urdf` file.
+3. Define the `chassis` link (Box).
+4. Define two `wheel` links (Cylinders).
+5. Add `continuous` joints for the wheels.
+
+## Visualize
+
+```bash
+ros2 launch urdf_tutorial display.launch.py model:=urdf/robot.urdf
+```

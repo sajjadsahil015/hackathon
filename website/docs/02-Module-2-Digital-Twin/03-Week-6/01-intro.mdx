@@ -1,32 +1,27 @@
 ---
 sidebar_position: 1
-title: Introduction
-description: Gazebo Simulation
+title: 1. Gazebo Physics & Sensors
+description: Adding reality to the simulation
 ---
 
-# Week 6: Gazebo Physics
+# Gazebo Physics & Sensors
 
-## 🎯 Learning Objectives
+## Inertia and Mass
 
-<LearningObjective objectives={[
-  "Spawn robots in Gazebo Classic/Ignition",
-  "Attach sensors (Lidar, Camera, IMU)",
-  "Write Gazebo plugins for custom logic"
-]} />
+For physics to work, every link needs an `<inertial>` tag.
+- **Mass**: In kg.
+- **Inertia Matrix**: ixx, iyy, izz.
 
-## 1. From URDF to SDF
+## Adding Sensors
 
-Gazebo uses **SDF (Simulation Description Format)**. ROS 2 automatically converts URDF to SDF when spawning models.
-We must add `<gazebo>` tags to our URDF to define physics properties (friction, mass, inertia).
+We attach "plugins" to our URDF to simulate sensors.
 
-## 2. Simulating Sensors
-
-A robot is blind without sensors. In Gazebo, we attach virtual sensors that publish to ROS topics.
-
-*   **Lidar**: Publishes `sensor_msgs/LaserScan`
-*   **Camera**: Publishes `sensor_msgs/Image`
-*   **IMU**: Publishes `sensor_msgs/Imu`
-
-## 3. Lab: Maze Run
-
-Spawn the robot in a maze world (`ros2 launch gazebo_ros gazebo.launch.py world:=maze.world`) and drive it using `teleop_twist_keyboard`.
+### Lidar Plugin
+```xml
+<plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+  <ros>
+    <argument>~/out:=scan</argument>
+  </ros>
+  <output_type>sensor_msgs/LaserScan</output_type>
+</plugin>
+```

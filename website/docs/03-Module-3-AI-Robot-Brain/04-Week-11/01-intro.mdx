@@ -1,31 +1,18 @@
 ---
 sidebar_position: 1
-title: Introduction
-description: Behavior Trees and Autonomy
+title: 1. Behavior Trees
+description: Designing Robot Logic
 ---
 
-# Week 11: Behavior Trees
+# Behavior Trees (BT)
 
-## 🎯 Learning Objectives
+## FSM vs BT
+*   **Finite State Machines (FSM)**: Good for simple sequence. Hard to scale.
+*   **Behavior Trees (BT)**: Modular, hierarchical, reactive.
 
-<LearningObjective objectives={[
-  "Design complex behaviors using Behavior Trees",
-  "Integrate Nav2 with custom actions",
-  "Create a patrol application"
-]} />
-
-## 1. State Machines vs Behavior Trees
-
-*   **Finite State Machines (FSM)**: Rigid states (Idle -> Moving -> Error). Hard to scale.
-*   **Behavior Trees (BT)**: Modular, hierarchical logic (Sequence, Fallback, Parallel). Used in Halo AI and Nav2.
-
-### BT Nodes
-*   **Action**: Do something (Move, Speak).
-*   **Condition**: Check something (IsBatteryLow?).
-*   **Control**: Logic flow (Sequence: Do A, then B).
-
-## 2. Lab: Security Patrol
-
-Create a Behavior Tree that:
-1.  Patrols Points A, B, C.
-2.  **Fallback**: If battery < 20%, go to Dock.
+## BT Nodes
+*   **Control Nodes**:
+    *   **Sequence (->)**: Run children in order. Fail if one fails.
+    *   **Fallback (?)**: Run children in order. Success if one succeeds.
+*   **Action Nodes**: Do work (Move, Speak).
+*   **Condition Nodes**: Check state (IsBatteryLow?).

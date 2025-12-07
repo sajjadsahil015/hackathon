@@ -1,0 +1,25 @@
+---
+sidebar_position: 2
+title: "2. Lab: Security Patrol"
+description: Creating a Patrol Loop
+---
+
+# Lab: Security Patrol
+
+We will design a BT XML file for a patrol task.
+
+```xml
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <Sequence name="PatrolLoop">
+            <NavigateToPose goal="Point A"/>
+            <Wait duration="5"/>
+            <NavigateToPose goal="Point B"/>
+            <Wait duration="5"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
+```
+
+## Execution
+Load this XML into the Nav2 BT Navigator and watch the robot patrol forever.

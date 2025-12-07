@@ -1,32 +1,20 @@
 ---
 sidebar_position: 1
-title: Introduction
-description: Overview of Vision-Language-Action Models
+title: 1. Vision-Language-Action
+description: VLA Architecture
 ---
 
-# Week 12: Vision-Language-Action (VLA)
+# Vision-Language-Action (VLA)
 
-## 🎯 Learning Objectives
+## The Concept
+Traditional robotics pipeline:
+`Perception -> State Estimation -> Planning -> Control`
 
-<LearningObjective objectives={[
-  "Integrate OpenAI Whisper for voice commands",
-  "Connect VLM to robot actions",
-  "Execute cognitive planning"
-]} />
+VLA pipeline:
+`Image + Text Prompt -> VLA Model -> Robot Action`
 
-## 1. VLA Architecture
+## Models
+*   **RT-2 (Google)**: Robotic Transformer.
+*   **OpenVLA**: Open source alternative.
 
-**VLA (Vision-Language-Action)** models like Google's RT-2 or similar architectures combine:
-1.  **Vision**: Understanding the scene ("I see an apple").
-2.  **Language**: Understanding the command ("Pick up the healthy snack").
-3.  **Action**: outputting robot arm waypoints.
-
-## 2. Cognitive Planning
-
-Using LLMs (like GPT-4) as the "High Level Planner".
-*   **User**: "I spilled my drink."
-*   **LLM**: "1. Find sponge. 2. Pick up sponge. 3. Go to spill. 4. Wipe."
-
-## 3. Lab: Voice-Controlled Pick & Place
-
-Integrate **OpenAI Whisper** (Speech-to-Text) with a simple VLM API to command the simulation.
+These models understand semantic commands like "Pick up the plush toy" or "Move the spoon near the bowl".

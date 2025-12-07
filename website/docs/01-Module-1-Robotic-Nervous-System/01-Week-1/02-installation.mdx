@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+title: 2. Installation Setup
+description: Setting up ROS 2 Humble
+---
+
+# Installation & Setup
+
+## Prerequisites
+
+We use **ROS 2 Humble Hawksbill**. It requires:
+- Ubuntu 22.04 (Jammy Jellyfish) OR
+- Windows 10/11 (VS 2019+) OR
+- macOS (Source build - not recommended for beginners)
+
+## Hands-On: Installation
+
+<TerminalBlock commands={{
+  linux: "sudo apt install ros-humble-desktop\nsource /opt/ros/humble/setup.bash",
+  windows: "choco install ros-humble-desktop",
+  mac: "brew install ros-humble-desktop"
+}} />
+
+## Verify Installation
+
+Check if ROS 2 talks to itself:
+
+```bash
+printenv | grep ROS
+# Should show ROS_DISTRO=humble
+```
+

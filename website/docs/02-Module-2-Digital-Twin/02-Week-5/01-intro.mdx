@@ -1,29 +1,18 @@
 ---
 sidebar_position: 1
-title: Introduction
-description: Universal Robot Description Format
+title: 1. URDF Basics
+description: The Unified Robot Description Format
 ---
 
-# Week 5: URDF & Modeling
+# URDF Basics
 
-## 🎯 Learning Objectives
+**URDF** is XML for robots.
 
-<LearningObjective objectives={[
-  "Structure a robot model using URDF/Xacro",
-  "Define collision and visual geometries",
-  "Visualize transformations in RViz"
-]} />
-
-## 1. URDF: The Robot's DNA
-
-**URDF (Unified Robot Description Format)** is an XML format representing a robot model.
-
-### Key Components
-*   **Links**: The rigid bodies (chassis, wheel, arm segment).
-*   **Joints**: How links are connected (revolute, prismatic, fixed).
+## Anatomy of a Robot
 
 ```xml
 <robot name="my_robot">
+  <!-- The Main Body -->
   <link name="base_link">
     <visual>
       <geometry>
@@ -31,13 +20,14 @@ description: Universal Robot Description Format
       </geometry>
     </visual>
   </link>
+  
+  <!-- A Wheel -->
+  <link name="right_wheel">...</link>
+  
+  <!-- The Joint -->
+  <joint name="base_to_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+  </joint>
 </robot>
 ```
-
-## 2. Visualizing in RViz
-
-RViz is a 3D visualizer for ROS state. It subscribes to `/tf` (transforms) and `/robot_description` to render the model.
-
-## 3. Lab: Build a Mobile Robot
-
-We will define a 2-wheeled differential drive robot with a caster wheel.

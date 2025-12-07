@@ -1,0 +1,22 @@
+---
+sidebar_position: 3
+title: "3. Lab: Services & RQt"
+description: Using Service Calls
+---
+
+# Lab: Services & RQt
+
+## Calling a Service
+
+Reset the Turtlesim background color using the CLI:
+
+```bash
+ros2 service call /clear std_srvs/srv/Empty
+```
+
+## Using RQt
+
+1. Run `rqt`
+2. Plugins > Services > Service Caller
+3. Select `/spawn`
+4. Create a new turtle at (x=5, y=5).

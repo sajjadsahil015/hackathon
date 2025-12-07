@@ -1,0 +1,31 @@
+---
+sidebar_position: 4
+title: "4. Coding: Python Node"
+description: Writing your first ROS 2 Node
+---
+
+# Coding: Minimal Python Node
+
+Let's write a simple node that says "Hello".
+
+## The Code
+
+```python
+import rclpy
+from rclpy.node import Node
+
+class MyNode(Node):
+    def __init__(self):
+        super().__init__('my_node')
+        self.get_logger().info('Hello ROS 2!')
+
+def main():
+    rclpy.init()
+    node = MyNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+```
+
+## Execution
+
+Save this as `hello.py` and run with `python3 hello.py`.

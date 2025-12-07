@@ -1,0 +1,30 @@
+---
+sidebar_position: 2
+title: "2. Lab: Pub/Sub Implementation"
+description: Writing a Publisher and Subscriber
+---
+
+# Lab: Pub/Sub Implementation
+
+## Publisher Code
+
+```python
+self.publisher_ = self.create_publisher(String, 'topic', 10)
+timer_period = 0.5  # seconds
+self.timer = self.create_timer(timer_period, self.timer_callback)
+```
+
+## Subscriber Code
+
+```python
+self.subscription = self.create_subscription(
+    String,
+    'topic',
+    self.listener_callback,
+    10)
+```
+
+## Exercise
+
+1. Create a `ping` node that publishes "Ping".
+2. Create a `pong` node that listens for "Ping" and prints "Pong".

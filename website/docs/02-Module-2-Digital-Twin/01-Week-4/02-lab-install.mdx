@@ -1,0 +1,23 @@
+---
+sidebar_position: 2
+title: "2. Lab: Installing Gazebo"
+description: Setting up the Classic simulator
+---
+
+# Lab: Installing Gazebo
+
+## Installation
+
+<TerminalBlock commands={{
+  linux: "sudo apt install ros-humble-gazebo-ros-pkgs",
+  windows: "wsl install ros-humble-gazebo-ros-pkgs",
+  mac: "brew install gazebo"
+}} />
+
+## Running the Demo
+
+```bash
+ros2 launch gazebo_ros gazebo.launch.py
+```
+
+You should see an empty 3D world.

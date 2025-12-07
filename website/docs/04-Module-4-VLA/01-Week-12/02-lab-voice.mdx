@@ -1,0 +1,21 @@
+---
+sidebar_position: 2
+title: "2. Lab: Voice Control"
+description: Integrating Whisper
+---
+
+# Lab: Voice Control
+
+## Objective
+Control the robot using voice commands.
+
+## Components
+1.  **OpenAI Whisper**: Speech-to-Text.
+2.  **LLM (GPT/Llama)**: Text-to-JSON (Intent extraction).
+3.  **ROS 2**: Execution.
+
+## Workflow
+1.  User: "Go to the kitchen."
+2.  Whisper: Transcribes audio to text.
+3.  LLM: Extracts `{"action": "navigate", "target": "kitchen"}`.
+4.  Python Node: Sends Nav2 goal to "kitchen" coordinates.
